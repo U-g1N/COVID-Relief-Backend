@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { MONGO_URI } = require("./config");
-//require('dotenv').config();
+require('dotenv').config();
 // Routes
 const ambulanceRoutes = require("./routes/api/ambulance");
 const bloodDonorRoutes = require("./routes/api/blood");
@@ -15,6 +15,7 @@ const plasmaRoutes = require("./routes/api/plasma");
 const teleCounsellingRoutes = require("./routes/api/tele");
 const registrationRoutes = require("./routes/api/register");
 const loginRoutes = require("./routes/api/login");
+const foodcatererRoutes = require("./routes/api/foodcaterer")
 
 const feedbackRoutes = require("./routes/api/feedback");
 
@@ -54,8 +55,9 @@ app.use("/api/register", registrationRoutes);
 app.use("/api/login", loginRoutes);
 
 app.use("/api/feedback", feedbackRoutes);
-
+app.use("/api/foodcaterer", foodcatererRoutes)
 app.use("/api/neravu", neravuRoutes);
 
 // Listen to server
 app.listen(process.env.PORT || 11000, () => console.log("Server Started"));
+
